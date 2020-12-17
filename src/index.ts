@@ -5,11 +5,15 @@ import {buildSchema} from 'type-graphql';
 // import {createConnection} from 'typeorm';
 
 import { __prod__ } from './constant';
-import { HelloResolver } from './resolvers/hello';
+//import { HelloResolver } from './resolvers/hello';
 // import { OrphanagesResolver } from './resolvers/orphanages';
 import { createConnection } from 'typeorm';
-import path from 'path';
-import Orphanages from './entities/Orphanages';
+//import { OrphanagesResolver } from './resolvers/orphanages';
+// import path from 'path';
+import { HelloResolver } from './resolvers/hello';
+import { OrphanagesResolver } from './resolvers/orphanages';
+// import path from 'path';
+// import Orphanages from './entities/Orphanages';
 
 const main = async () => {
 
@@ -17,27 +21,32 @@ const main = async () => {
 
   console.log('DIR:',__dirname)
 
-  await createConnection(
-    {
-      type: 'postgres',
-      url: process.env.DATABASE_URL,
-      logging: true,
-      // syncronize: true,
-      migrations: [path.join(__dirname, "./shared/infra/typeorm/migrations/*")],
-      entities: [Orphanages]
-    }
-  );
+  await createConnection();
 
+  //   {
+  //     type: 'postgres',
+  //     url: process.env.DATABASE_URL,
+  //     logging: false,
+  //     // syncronize: true,
+  //     migrations: [path.join(__dirname, "./shared/infra/typeorm/migrations/*")],
+  //     entities: [Orphanages]
+  //   }
+  // );
 
-  const apolloServer = new ApolloServer({
-    schema: await buildSchema({
-      resolvers: [HelloResolver],
-      validate: false
-    }),
-    context: ({req, res}) =>({
-      req, res
-    })
-    })
+  const schema = await buildSchema({
+    resolvers: [HelloResolver, OrphanagesResolver]
+  });
+
+  const apolloServer = new ApolloServer({ schema })
+  // const apolloServer = new ApolloServer({
+  //   schema: await buildSchema({
+  //     resolvers: [HelloResolver, OrphanagesResolver],
+  //     validate: false
+  //   }),
+  //   context: ({req, res}) =>({
+  //     req, res
+  //   })
+  //   })
   
 
       // context: () => ({ em: connection. })

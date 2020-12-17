@@ -2,7 +2,7 @@ import { Field, Int, ObjectType } from 'type-graphql';
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn} from 'typeorm';
 
 @ObjectType()
-@Entity('orphanages')
+@Entity({schema: 'orphanages'})
 export default class Orphanages {
 
   @Field((() => Int))
@@ -13,35 +13,35 @@ export default class Orphanages {
   @Column()
   name: string;
 
-  @Field()
+  @Field(() => Int)
   @Column()
   latitude: number;
 
-  @Field()
+  @Field(() => Int)
   @Column()
   longitude: number;
 
-  @Field()
+  @Field(() => String)
   @Column()
   about: string;
 
-  @Field()
+  @Field(() => String)
   @Column()
   instructions: string;
 
-  @Field()
+  @Field(() => String)
   @Column({name: 'opening_hours'})
   openingHours: string;
 
-  @Field()
+  @Field(() => Boolean)
   @Column({name: 'open_on_weekends'})
   openOnWeekends: boolean;
 
-  @Field()
+  @Field(() => String)
   @CreateDateColumn({name: 'created_at'})
   createdAt: Date;
 
-  @Field()
+  @Field(() => String)
   @UpdateDateColumn({name: 'updated_at'})
   updatedAt: Date;
 }
