@@ -1,47 +1,47 @@
-import { Field, Int, ObjectType } from 'type-graphql';
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn} from 'typeorm';
+import { Field, Float, ObjectType } from 'type-graphql';
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BaseEntity} from 'typeorm';
 
 @ObjectType()
-@Entity({schema: 'orphanages'})
-export default class Orphanages {
+@Entity('orphanages')
+export default class Orphanages extends BaseEntity {
 
-  @Field((() => Int))
+  @Field()
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Field(() => String)
+  @Field()
   @Column()
   name: string;
 
-  @Field(() => Int)
+  @Field(() => Float)
   @Column()
   latitude: number;
 
-  @Field(() => Int)
+  @Field(() => Float)
   @Column()
   longitude: number;
 
-  @Field(() => String)
+  @Field()
   @Column()
   about: string;
 
-  @Field(() => String)
+  @Field()
   @Column()
   instructions: string;
 
-  @Field(() => String)
+  @Field()
   @Column({name: 'opening_hours'})
   openingHours: string;
 
-  @Field(() => Boolean)
+  @Field()
   @Column({name: 'open_on_weekends'})
   openOnWeekends: boolean;
 
-  @Field(() => String)
+  @Field()
   @CreateDateColumn({name: 'created_at'})
   createdAt: Date;
 
-  @Field(() => String)
+  @Field()
   @UpdateDateColumn({name: 'updated_at'})
   updatedAt: Date;
 }
