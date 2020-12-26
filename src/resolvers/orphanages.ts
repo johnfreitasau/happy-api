@@ -1,5 +1,5 @@
 import Orphanages from '../entities/Orphanages';
-import {Resolver, Mutation, Arg, Float, Query, InputType, Field} from 'type-graphql';
+import {Resolver, Mutation, Arg, Float, Query, InputType, Field, Args} from 'type-graphql';
 
 @InputType()
 class OrphanageInsertInput {
@@ -61,7 +61,6 @@ export class OrphanagesResolver {
       //await Orphanages.insert(options)
     //option 2
     const orphanage = await Orphanages.create(options).save()
-    console.log(options);
     return orphanage;
   }
 
@@ -84,4 +83,27 @@ export class OrphanagesResolver {
   orphanages() {
     return Orphanages.find();
   }
+
+  @Query(() => [Orphanages])
+  async findOrphanage(@Arg('name') name: string) {
+    return Orphanages.findOne({
+      name: name
+    });
+  }
+
+  // @Mutation(() => Boolean)
+  // Mutation: {
+  //   singleUpload: (parent, args) => {
+  //     return args.file.then(file => {
+  //       //Contents of Upload scalar: https://github.com/jaydenseric/graphql-upload#class-graphqlupload
+  //       //file.createReadStream() is a readable node stream that contains the contents of the uploaded file
+  //       //node stream api: https://nodejs.org/api/stream.html
+  //       return file;
+  //     });
+  //   }
+  // }
+
+
+
+
 }
