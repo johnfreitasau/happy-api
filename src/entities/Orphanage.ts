@@ -1,9 +1,10 @@
 import { Field, Float, ObjectType } from 'type-graphql';
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BaseEntity} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BaseEntity, OneToMany, JoinColumn} from 'typeorm';
+import Images from './Image';
 
 @ObjectType()
 @Entity('orphanages')
-export default class Orphanages extends BaseEntity {
+export default class Orphanage extends BaseEntity {
 
   @Field()
   @PrimaryGeneratedColumn('uuid')
@@ -12,6 +13,14 @@ export default class Orphanages extends BaseEntity {
   @Field()
   @Column()
   name: string;
+
+  @Field()
+  @Column()
+  email: string;
+
+  @Field()
+  @Column()
+  whatsapp: string;
 
   @Field(() => Float)
   @Column()
@@ -44,4 +53,10 @@ export default class Orphanages extends BaseEntity {
   @Field()
   @UpdateDateColumn({name: 'updated_at'})
   updatedAt: Date;
+
+  @OneToMany(() => Images, image => image.orphanage, {
+    cascade: ['insert', 'update']
+  })
+  @JoinColumn({ name: 'orphanage_id' })
+  images: Images[];
 }

@@ -19,6 +19,14 @@ export default class createOrphanages1608099569812 implements MigrationInterface
                     type: 'varchar',
                 },
                 {
+                    name: 'email',
+                    type: 'varchar',
+                },
+                {
+                    name: 'whatsapp',
+                    type: 'varchar',
+                },                
+                {
                     name: 'latitude',
                     type: 'decimal',
                     precision: 10,
