@@ -11,8 +11,6 @@ const main = async () => {
 
   const app = express();
 
-  console.log('***** It is here!')
-
   await createConnection();
 
   app.use(cors({
@@ -28,10 +26,6 @@ const main = async () => {
   })
 
   apolloServer.applyMiddleware({app, cors: false});
-
-  app.get('/', (_, res) => {
-    res.send('hello')
-  })
 
   app.listen(4000,() => {
     console.log(`Express server started on port 4000 - ${apolloServer.graphqlPath}`);
