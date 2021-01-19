@@ -1,5 +1,5 @@
 <h1 align="center">
-  HAPPYU - API
+  HAPPY - API
 </h1>
 
 <h3 align="center">
