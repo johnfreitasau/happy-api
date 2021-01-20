@@ -92,18 +92,27 @@ Or
 npm install
 ```
 
-Create your environment variables based on the examples of ```.env.example```
+Create your environment variable based on the example of ```.env.example```
 
 ```
 cp .env.example .env
 ```
 
-After copying the examples, make sure to fill the variables with new values.
+
+Create your ormconfig.json file based on the example ```ormconfig.example.json```
+
+```
+cp ormconfig.example.json ormconfig.json
+```
+
+
+After copying the examples, make sure to fill the variables with new the values.
 
 **Setup a database**
 
-You must install [Docker](https://www.docker.com/) in your machine, fill the environment values related to database configurations and then run the following commands in order to create Postgres, Mongo and Redis containers.
+You must install [Docker](https://www.docker.com/) in your machine, fill the environment values based on your database configuration, then run the following command in order to create the Postgres container.
 
+Example:
 ```
 # Create the postgreSQL instance using docker
 $ docker run --name happy-postgres -e POSTGRES_USER=docker \
