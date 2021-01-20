@@ -105,7 +105,7 @@ cp ormconfig.example.json ormconfig.json
 
 After copying the examples, make sure to fill the variables with new the values.
 
-**Setup a database**
+**Database setup**
 
 You must install [Docker](https://www.docker.com/) in your machine, fill the environment values based on your database configuration, then run the following command in order to create the Postgres container.
 
