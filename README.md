@@ -3,27 +3,23 @@
 </h1>
 
 <h3 align="center">
-  SweetCake API
+  Happy - Spread happiness Into The World.
 </h3>
-
-<h4 align="center">
-  Your favorite dessert shop next to you
-</h4>
+<h4 align="center"> NodeJS | GraphQL | Apollo Server | Express | TypeORM | PostgreSQL </h4>
 
 
 <!-- E02041 -->
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/johnfreitasau/sweetcake-api?color=%23FB8F0A">
-  <a href="https://www.linkedin.com/in/johnfreitasau/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-John%20Freitas-%23FB8F0A"></a>
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/johnfreitasau/sweetcake-api?color=%23FB8F0A">
-  <a href="https://github.com/johnfreitasau/sweetcake-web/commits/master"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/johnfreitasau/sweetcake-api?color=%23FB8F0A"></a>
-  <a href="https://github.com/johnfreitasau/sweetcake-web/issues"><img alt="Repository issues" src="https://img.shields.io/github/issues/johnfreitasau/sweetcake-api?color=%23FB8F0A"></a>
-  <img alt="GitHub" src="https://img.shields.io/github/license/johnfreitasau/sweetcake-web?color=%23FB8F0A">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/johnfreitasau/happy-api?color=%2329B6D1">
+  <a href="https://www.linkedin.com/in/johnfreitasau/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-John%20Freitas-%2329B6D1"></a>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/johnfreitasau/happy-api?color=%2329B6D1">
+  <a href="https://github.com/johnfreitasau/happy-api/commits/main"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/johnfreitasau/happy-api?color=%2329B6D1"></a>
+  <a href="https://github.com/johnfreitasau/happy-api/issues"><img alt="Repository issues" src="https://img.shields.io/github/issues/johnfreitasau/happy-api?color=%2329B6D1"></a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/johnfreitasau/happy-api?color=%2329B6D1">
 </p>
 
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#rocket-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#construction_worker-installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#runner-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -52,46 +48,36 @@
 
 - [Node.js](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [GraphQL](https://graphql.org/)
+- [TypeGraphQL](https://typegraphql.com/)
+- [Apollo Server Express](https://www.npmjs.com/package/apollo-server-express)
 - [Express](https://expressjs.com/pt-br/)
-- [Redis](https://redis.io/)
-- [Celebrate](https://github.com/arb/celebrate#readme)
 - [Cors](https://github.com/expressjs/cors#readme)
-- [Multer](https://github.com/expressjs/multer)
 - [TypeORM](https://typeorm.io/#/)
-- [JWT-token](https://jwt.io/)
 - [uuid v4](https://github.com/thenativeweb/uuidv4/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [Date-fns](https://date-fns.org/)
-- [Jest](https://jestjs.io/)
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [EditorConfig](https://editorconfig.org/)
 
 
 # :rocket: Features
 
-* User SignIn / SignOut;
-* Create / update / soft delete Customers;
-* Create / update / delete products;
-* Create / update / delete product categories;
-* Create delivery / pickup orders;
-* Close delivery / pickup orders;
-* Delete open orders;
-* Edit profile;
-* Create new user;
+Queries:
+* List Orphanages
+
+* Create new Orphanage
+* See Orphanage Details
 
 # :construction_worker: Installation
 
 **You need to install [Node.js](https://nodejs.org/en/download/) and [Yarn](https://yarnpkg.com/) first, then in order to clone the project via HTTPS, run this command:**
 
 ```
-git clone https://github.com/johnfreitasau/sweetcake-api.git
+git clone https://github.com/johnfreitasau/happy-api.git
 ```
 
 SSH URLs provide access to a Git repository via SSH, a secure protocol. If you use a SSH key registered in your Github account, clone the project using this command:
 
 ```
-git clone git@github.com:johnfreitasau/sweetcake-api.git
+git clone git@github.com:johnfreitasau/happy-api.git
 ```
 
 **Install dependencies**
@@ -120,15 +106,9 @@ You must install [Docker](https://www.docker.com/) in your machine, fill the env
 
 ```
 # Create the postgreSQL instance using docker
-$ docker run --name sweekcake-postgres -e POSTGRES_USER=docker \
-              -e POSTGRES_DB=sweetcake -e POSTGRES_PASSWORD=docker \
+$ docker run --name happy-postgres -e POSTGRES_USER=docker \
+              -e POSTGRES_DB=happy -e POSTGRES_PASSWORD=docker \
               -p 5432:5432 -d postgres
-
-# Create the mongoDB instance using docker
-$ docker run --name gobarber-mongodb -p 27017:27017 -d -t mongo
-
-# Create the Redis instance using docker
-$ docker run --name gobarber-redis -p 6379:6379 -d -t redis:alpine
 ```
 
 
@@ -140,23 +120,27 @@ Run the transactions in order to configure the database schema
 
 Run the following command in order to start the application in a development environment:
 
-```yarn dev:server```
+```
+1st terminal -> yarn watch
+
+2nd terminal - yarn dev
+```
 
 # :postbox: Faq
 
 **Question:** What are the technologies used in this project?
 
-**Answer:** The technologies used in this project are [NodeJS](https://nodejs.org/en/) + [Express Framework](http://expressjs.com/en/) to handle the server and [TypeORM](https://typeorm.io/#/) as the Object Relational Mapper
+**Answer:** The technologies used in this project are NodeJS, GraphQL with Apollo Server, Express, TypeORM and PostgreSQL.
 
 # :bug: Issues
 
-Feel free to **file a new issue** with a respective title and description on the the [SweetCake API](https://github.com/johnfreitasau/sweetcake-api/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/johnfreitasau/sweetcake-api/blob/master/CONTRIBUTING.md) to find out about the coding standards.
+Feel free to **file a new issue** with a respective title and description on the the [Happy API](https://github.com/johnfreitasau/happy-api/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/johnfreitasau/happy-api/blob/main/CONTRIBUTING.md) to find out about the coding standards.
 
 # :tada: Contributing
 
-Check out the [contributing](https://github.com/johnfreitasau/sweetcake-api/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
+Check out the [contributing](https://github.com/johnfreitasau/happy-api/blob/main/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
 
 # :closed_book: License
 
 Released in 2020.
-This project is under the [MIT license](https://github.com/johnfreitasau/sweetcake-api/LICENSE).
+This project is under the [MIT license](https://github.com/johnfreitasau/happy-api/LICENSE).
